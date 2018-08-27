@@ -1,7 +1,10 @@
 import express from 'express';
+import eventRouter from './eventRouter';
+import vehicleRouter from './vehicleRouter';
 
-export const apiRouter = express.Router();
+const apiRouter = express.Router();
 
-apiRouter.use('/user', (req, res) => {
-  res.json({ api: true });
-});
+apiRouter.use('/event', eventRouter);
+apiRouter.use('/vehicle', vehicleRouter);
+
+export default apiRouter;

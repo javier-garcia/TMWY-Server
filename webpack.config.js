@@ -7,21 +7,22 @@ module.exports = {
   entry: ['webpack/hot/poll?1000', './src/index.js'],
   target: 'node',
   watch: true,
+  devtool: 'sourcemap',
   mode: 'development',
   externals: [nodeExternals({ whitelist: ['webpack/hot/poll?1000'] })],
   module: {
     rules: [
       {
         test: /\.js?$/,
-        loader: 'babel-loader'
-      }
-    ]
+        loader: 'babel-loader',
+      },
+    ],
   },
   plugins: [
     new StartServerPlugin('server.js'),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
-  output: { path: path.join(__dirname, 'dist'), filename: 'server.js' }
+  output: { path: path.join(__dirname, 'dist'), filename: 'server.js' },
 };
