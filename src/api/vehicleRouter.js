@@ -3,16 +3,12 @@ import Vehicle from '../models/vehicle';
 
 const vehicleRouter = express.Router();
 
-vehicleRouter.route('/').get(() => {
-  Vehicle.create({
-    event_id: '5b82ee7705a79c72a1e6ba3e',
-    driver_name: 'Javi',
-    driver_email: '',
-    start_point: 'My place',
-    start_datetime: '',
-    free_seats: 4,
-    comments: '',
-  });
+vehicleRouter.route('/').get((req, res, next) => {
+  Vehicle.find()
+    .populate('vehicles')
+    .exec()
+    .then(docs => res.status(201).json(docs))
+    .catch(error => next(error));
 });
 
 export default vehicleRouter;
