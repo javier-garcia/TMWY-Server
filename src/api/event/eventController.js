@@ -1,4 +1,8 @@
-import controllerCreator from '../controllerCreator';
+import generateControllers from '../controllers';
 import Event from '../../models/event';
 
-export default controllerCreator(Event);
+// export default generateControllers(Event, {
+//   fieldsToBePopulated: ['vehicles'],
+// });
+
+export default generateControllers(Event);

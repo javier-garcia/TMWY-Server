@@ -1,4 +1,4 @@
-import controllerCreator from '../controllerCreator';
+import generateControllers from '../controllers';
 import Vehicle from '../../models/vehicle';
 
-export default controllerCreator(Vehicle);
+export default generateControllers(Vehicle);

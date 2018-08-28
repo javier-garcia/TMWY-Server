@@ -1,4 +1,10 @@
-// process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+import { config as testingConfig } from './testing';
+
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = 'developement';
+}
+
+const env = process.env.NODE_ENV;
 
 const baseConfig = {
   port: 3000,
@@ -7,4 +13,19 @@ const baseConfig = {
   },
 };
 
-export default baseConfig;
+let envConfig = {};
+
+switch (env) {
+  case 'development':
+  case 'dev':
+    envConfig = {};
+    break;
+  case 'test':
+  case 'testing':
+    envConfig = testingConfig;
+    break;
+  default:
+    envConfig = {};
+}
+
+export default Object.assign(baseConfig, envConfig);

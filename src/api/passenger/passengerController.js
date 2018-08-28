@@ -1,4 +1,4 @@
-import controllerCreator from '../controllerCreator';
+import generateControllers from '../controllers';
 import Passenger from '../../models/passenger';
 
-export default controllerCreator(Passenger);
+export default generateControllers(Passenger);
