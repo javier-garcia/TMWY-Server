@@ -11,6 +11,7 @@ const eventSchema = new mongoose.Schema({
   place: String,
   place_coords: String,
   vehicles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'vehicle' }],
+  passengers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'passenger' }],
 });
 
 const Event = mongoose.model('event', eventSchema);

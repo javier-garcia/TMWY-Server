@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const vehicleSchema = new mongoose.Schema({
-  event_id: String,
   driver_name: {
     type: String,
     required: true,
@@ -11,6 +10,7 @@ const vehicleSchema = new mongoose.Schema({
   start_datetime: String,
   free_seats: Number,
   comments: String,
+  passengers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'passenger' }],
 });
 
 const Vehicle = mongoose.model('vehicle', vehicleSchema);

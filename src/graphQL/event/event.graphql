@@ -1,0 +1,15 @@
+type Event {
+  id: ID!
+  name: String
+  admin_name: String
+  admin_email: String
+  datetime: String
+  place: String
+  place_coords: String
+  vehicles: [Vehicle]
+  passengers: [Passenger]
+}
+
+type Query {
+  allEvents: [Event]!
+}
