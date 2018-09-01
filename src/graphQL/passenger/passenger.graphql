@@ -1,0 +1,9 @@
+type Passenger {
+  id: ID!
+  name: String!
+  email: String
+}
+
+extend type Query {
+  allPassengers: [Passenger]
+}

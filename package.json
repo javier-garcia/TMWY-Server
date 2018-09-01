@@ -10,7 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "1.1.6",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "graphql": "^14.0.0",
+    "graphql-tools": "^3.1.1",
+    "lodash.merge": "^4.6.1",
     "mongoose": "^5.2.9"
   },
   "devDependencies": {
@@ -31,6 +36,7 @@
     "mocha": "^5.2.0",
     "mocha-webpack": "next",
     "prettier": "^1.14.2",
+    "raw-loader": "^0.5.1",
     "source-map-support": "^0.5.9",
     "start-server-webpack-plugin": "^2.2.5",
     "webpack": "^4.17.1",

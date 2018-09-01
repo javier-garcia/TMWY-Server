@@ -1,0 +1,17 @@
+type Vehicle {
+  id: ID!
+  event_id: ID!
+  driver_name: String!
+  driver_email: String
+  start_point: String
+  start_point_coords: String
+  start_datetime: String
+  place_coords: String
+  free_seats: Int
+  comments: String
+  passengers: [Passenger]
+}
+
+extend type Query {
+  allVehicles: [Vehicle]!
+}

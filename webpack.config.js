@@ -16,6 +16,13 @@ module.exports = {
         test: /\.js?$/,
         loader: 'babel-loader',
       },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'raw-loader',
+        },
+      },
     ],
   },
   plugins: [
