@@ -75,7 +75,6 @@ const getOne = (model, options) => (req, res, next) => {
 
 const getAll = (model, options) => (req, res, next) => {
   const promise = controllers.getAll(model, options);
-  console.log(promise);
   promise
     .then(docs => {
       res.status(200).json(docs);

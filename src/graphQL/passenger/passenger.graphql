@@ -4,6 +4,27 @@ type Passenger {
   email: String
 }
 
+input NewPassenger {
+  name: String!
+  email: String
+}
+
+input UpdatePassenger {
+  id: ID!
+  name: String
+  email: String
+}
+
+input DeletePassenger {
+  id: ID!
+}
+
 extend type Query {
   allPassengers: [Passenger]
+}
+
+extend type Mutation {
+  newPassenger(input: NewPassenger!): Passenger!
+  updatePassenger(input: UpdatePassenger!): Passenger!
+  deletePassenger(input: DeletePassenger!): Passenger!
 }

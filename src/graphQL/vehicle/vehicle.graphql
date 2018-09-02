@@ -12,6 +12,43 @@ type Vehicle {
   passengers: [Passenger]
 }
 
+input NewVehicle {
+  event_id: ID!
+  driver_name: String!
+  driver_email: String
+  start_point: String
+  start_point_coords: String
+  start_datetime: String
+  place_coords: String
+  free_seats: Int
+  comments: String
+  passengers: [ID]
+}
+
+input UpdateVehicle {
+  id: ID!
+  event_id: ID
+  driver_name: String
+  driver_email: String
+  start_point: String
+  start_point_coords: String
+  start_datetime: String
+  place_coords: String
+  free_seats: Int
+  comments: String
+  passengers: [ID]
+}
+
+input DeleteVehicle {
+  id: ID!
+}
+
 extend type Query {
   allVehicles: [Vehicle]!
+}
+
+extend type Mutation {
+  newVehicle(input: NewVehicle!): Vehicle!
+  updateVehicle(input: UpdateVehicle!): Vehicle!
+  deleteVehicle(input: DeleteVehicle!): Vehicle!
 }

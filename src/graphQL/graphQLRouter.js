@@ -8,6 +8,7 @@ import { passengerType, passengerResolvers } from './passenger';
 const baseSchema = `
   schema {
     query: Query
+    mutation: Mutation
   }
 `;
 
