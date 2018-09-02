@@ -1,7 +1,7 @@
 type Event {
   id: ID!
-  name: String
-  admin_name: String
+  name: String!
+  admin_name: String!
   admin_email: String
   datetime: String
   place: String
@@ -10,6 +10,39 @@ type Event {
   passengers: [Passenger]
 }
 
+input NewEvent {
+  name: String!
+  admin_name: String!
+  admin_email: String
+  datetime: String
+  place: String
+  place_coords: String
+  vehicles: [ID]
+  passengers: [ID]
+}
+
+input UpdateEvent {
+  id: ID!
+  name: String
+  admin_name: String
+  admin_email: String
+  datetime: String
+  place: String
+  place_coords: String
+  vehicles: [ID]
+  passengers: [ID]
+}
+
+input DeleteEvent {
+  id: ID!
+}
+
 type Query {
   allEvents: [Event]!
+}
+
+type Mutation {
+  newEvent(input: NewEvent!): Event!
+  updateEvent(input: UpdateEvent!): Event!
+  deleteEvent(input: DeleteEvent!): Event!
 }
