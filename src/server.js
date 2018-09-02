@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import { graphiqlExpress } from 'apollo-server-express';
+import cors from 'cors';
 import config from './config';
 import apiRouter from './api/apiRouter';
 import { graphQLRouter } from './graphQL/graphQLRouter';
@@ -20,7 +21,7 @@ mongoose.connect(
 
 app.use('/api', apiRouter);
 
-app.use('/graphql', graphQLRouter);
+app.use('/graphql', cors(), graphQLRouter);
 app.use('/docs', graphiqlExpress({ endpointURL: '/graphql' }));
 
 app.use('*', (req, res) => {

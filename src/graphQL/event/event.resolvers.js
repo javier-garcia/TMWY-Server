@@ -2,6 +2,8 @@ import Event from '../../models/event';
 
 const allEvents = async () => Event.find({}).exec();
 
+const getEvent = (_, { id }) => Event.findById(id).exec();
+
 const newEvent = (_, { input }) => Event.create(input);
 
 // eslint-disable-next-line arrow-body-style
@@ -16,6 +18,7 @@ const deleteEvent = (_, { input }) => Event.findByIdAndRemove({ _id: input.id })
 const eventResolvers = {
   Query: {
     allEvents,
+    getEvent,
   },
 
   Mutation: {
