@@ -5,6 +5,7 @@ const vehicleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  event_id: String,
   driver_email: String,
   start_point: String,
   start_datetime: String,
