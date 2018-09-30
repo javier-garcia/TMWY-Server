@@ -8,9 +8,14 @@ const newVehicle = async (_, { input }) => {
 
   // TODO: Throw error if event wasn't found
 
+  // try {
   const newVehicle = await Vehicle.create(input);
+  /* } catch (error) {
+    throw new Error('This is my error');
+  } */
 
   const vehicles = event.vehicles.concat([newVehicle._id]);
+
   await Event.updateOne({ _id: input.event_id }, { vehicles });
 
   return newVehicle;

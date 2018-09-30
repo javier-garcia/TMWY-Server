@@ -5,6 +5,7 @@ type Passenger {
 }
 
 input NewPassenger {
+  vehicle_id: String
   name: String!
   email: String
 }

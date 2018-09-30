@@ -22,4 +22,7 @@ export const graphQLRouter = graphqlExpress(req => ({
   context: {
     req,
   },
+  formatError: err => {
+    return { status: 400, message: err.message };
+  },
 }));
