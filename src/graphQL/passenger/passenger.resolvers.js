@@ -1,8 +1,21 @@
 import Passenger from '../../models/passenger';
+import Vehicle from '../../models/vehicle';
 
 const allPassengers = () => Passenger.find({}).exec();
 
-const newPassenger = (_, { input }) => Passenger.create(input);
+const newPassenger = async (_, { input }) => {
+  const newPassenger = await Passenger.create(input);
+
+  if (input.vehicle_id) {
+    const vehicle = await Vehicle.findById(input.vehicle_id);
+
+    const passengers = vehicle.passengers.concat([newPassenger._id]);
+
+    await Vehicle.updateOne({ _id: input.vehicle_id }, { passengers });
+  }
+
+  return newPassenger;
+};
 
 // eslint-disable-next-line arrow-body-style
 const updatePassenger = (_, { input }) => {
