@@ -1,9 +1,10 @@
 type Event {
   id: ID!
   name: String!
+  description: String
   admin_name: String!
   admin_email: String
-  datetime: String
+  datetime: Int
   place: String
   place_coords: String
   vehicles: [Vehicle]
@@ -12,9 +13,10 @@ type Event {
 
 input NewEvent {
   name: String!
+  description: String
   admin_name: String!
   admin_email: String
-  datetime: String
+  datetime: Int
   place: String
   place_coords: String
   vehicles: [ID]
@@ -24,9 +26,10 @@ input NewEvent {
 input UpdateEvent {
   id: ID!
   name: String
+  description: String
   admin_name: String
   admin_email: String
-  datetime: String
+  datetime: Int
   place: String
   place_coords: String
   vehicles: [ID]

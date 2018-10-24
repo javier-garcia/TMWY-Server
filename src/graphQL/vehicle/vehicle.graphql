@@ -3,9 +3,9 @@ type Vehicle {
   event_id: ID!
   driver_name: String!
   driver_email: String
-  start_point: String
-  start_point_coords: String
-  start_datetime: String
+  start_location: String
+  start_coordinates: String
+  start_datetime: Int
   place_coords: String
   free_seats: Int
   comments: String
@@ -16,9 +16,9 @@ input NewVehicle {
   event_id: ID!
   driver_name: String!
   driver_email: String
-  start_point: String
-  start_point_coords: String
-  start_datetime: String
+  start_location: String
+  start_coordinates: String
+  start_datetime: Int
   place_coords: String
   free_seats: Int
   comments: String
@@ -30,9 +30,9 @@ input UpdateVehicle {
   event_id: ID
   driver_name: String
   driver_email: String
-  start_point: String
-  start_point_coords: String
-  start_datetime: String
+  start_location: String
+  start_coordinates: String
+  start_datetime: Int
   place_coords: String
   free_seats: Int
   comments: String
